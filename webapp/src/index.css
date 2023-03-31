@@ -2,9 +2,11 @@
   background-color: #0e0e0e;
 }
 
+html { font-size: 10px; }
+
 @font-face {
-  font-family: "ProductSans-Bold";
-  src: local("ProductSans-Bold"), url("./assets/fonts/Circular/ProductSans-Bold.ttf")
+  font-family: "ProductSans-Regular";
+  src: local("ProductSans-Regular"), url("./assets/fonts/Circular/ProductSans-Regular.ttf")
     format("truetype");
 }
 

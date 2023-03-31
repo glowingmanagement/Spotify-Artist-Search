@@ -6,8 +6,11 @@ const Header = () => {
   // Define the component logic here
   return (
     <div className='headerContainer'>
-      {/* <img src={UnHurdLogo} alt="UnHurd Logo"/> */}
-      <h1 style={{color: "#fff"}}>Title</h1>
+        <div className='navLeft'>
+            <img src={UnHurdLogo} alt="UnHurd Logo" className='logo'/>
+            <div className='divider'></div>
+            <h1 className='headerLeftText'>The #1 music marketing app</h1>
+        </div>
     </div>
   );
 }
