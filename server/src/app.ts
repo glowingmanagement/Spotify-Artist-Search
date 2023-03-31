@@ -5,12 +5,10 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.json());
+
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
+  res.status(200).json({ message: "Unhurd Assessment BFF", app: "Unhurd Assessment" });
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+export default app;
