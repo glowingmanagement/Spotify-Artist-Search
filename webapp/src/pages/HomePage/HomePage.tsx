@@ -1,16 +1,13 @@
-import { FC } from 'react';
-import UnHurdLogo from '../../assets/images/logo.svg';
+import Header from '../../components/Header';
+import './HomePage.css';
 
-interface Props {
-  // Define the props that will be passed to the component here
-}
-
-const HomePage: FC<Props> = (props) => {
+const HomePage = () => {
   // Define the component logic here
   return (
-    <div style={{backgroundColor: '#000', height: "100vh"}}>
-      <img src={UnHurdLogo} alt="UnHurd Logo"/>
+    <div className='homePageContainer'>
+      <Header />
     </div>
+
   );
 }
 
