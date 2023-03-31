@@ -17,6 +17,9 @@ const axios_1 = __importDefault(require("axios"));
 const getAccessToken = () => __awaiter(void 0, void 0, void 0, function* () {
     const clientId = process.env.CLIENT_ID;
     const clientSecret = process.env.CLIENT_SECRET;
+    if (!clientId || !clientSecret) {
+        throw new Error("Client ID or Client Secret is missing in environment variables.");
+    }
     const url = `https://accounts.spotify.com/api/token`;
     const response = yield axios_1.default.post(url, "grant_type=client_credentials", {
         headers: {
@@ -38,5 +41,3 @@ const getArtistData = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     res.status(200).json(response.data);
 });
 exports.getArtistData = getArtistData;
-// app.get("/api/search", async (req: Request, res: Response) => {
-// });

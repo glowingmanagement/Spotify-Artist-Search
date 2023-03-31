@@ -1,11 +1,16 @@
-import express, { Request, Response } from "express";
-import axios from "axios";
+import { Request, Response } from "express";
+import axios, { AxiosResponse } from "axios";
 
-const getAccessToken = async () => {
-    const clientId = process.env.CLIENT_ID;
-    const clientSecret = process.env.CLIENT_SECRET;
-    const url = `https://accounts.spotify.com/api/token`;
-    const response = await axios.post(
+const getAccessToken = async (): Promise<string> => {
+    const clientId: string | undefined = process.env.CLIENT_ID;
+    const clientSecret: string | undefined = process.env.CLIENT_SECRET;
+
+    if (!clientId || !clientSecret) {
+      throw new Error("Client ID or Client Secret is missing in environment variables.");
+    }
+
+    const url: string = `https://accounts.spotify.com/api/token`;
+    const response: AxiosResponse = await axios.post(
       url,
       "grant_type=client_credentials",
       {
@@ -21,10 +26,10 @@ const getAccessToken = async () => {
   };
 
 export const getArtistData = async (req: Request, res: Response) => {
-    const artistName = req.query.name;
-    const accessToken = await getAccessToken();
-    const url = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
-    const response = await axios.get(url, {
+    const artistName: string | undefined = req.query.name as string | undefined;
+    const accessToken: string = await getAccessToken();
+    const url: string = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
+    const response: AxiosResponse = await axios.get(url, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
