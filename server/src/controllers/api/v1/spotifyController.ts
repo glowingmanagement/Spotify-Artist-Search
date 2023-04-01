@@ -48,7 +48,7 @@ export const searchById = async (req: Request, res: Response) => {
   const artistId: string | undefined = req.params.id as string | undefined;
   const accessToken = await getAccessToken();
   const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`;
-  const albumsUrl = `https://api.spotify.com/v1/artists/${artistId}/albums`;
+  const albumsUrl = `https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album,single&market=GB&limit=50`;
 
   try {
     const [artistResponse, albumsResponse] = await Promise.all([
