@@ -22,7 +22,7 @@ const SearchBar = () => {
   const addToHistory = () => {
     const index = searchHistory.indexOf(search.toLowerCase());
     if (index >= 0) {
-      const updatedHistory = [
+      const updatedHistory: string[] = [
         search.toLowerCase(),
         ...searchHistory.slice(0, index),
         ...searchHistory.slice(index + 1),
@@ -34,14 +34,14 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    const savedHistory = localStorage.getItem("searchHistory");
+    const savedHistory: string | null = localStorage.getItem("searchHistory");
     if (savedHistory) {
       setSearchHistory(JSON.parse(savedHistory));
     }
   }, []);
 
   useEffect(() => {
-    if (searchHistory.length !== 0) {
+    if (searchHistory.length > 0) {
       localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     }
   }, [searchHistory]);
