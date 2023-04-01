@@ -3,14 +3,13 @@ import ErrorMessage from "../../components/ErrorMessage";
 import SearchBar from "../../components/SearchBar";
 import SearchResults from "../../components/SearchResults";
 import HomePageTitles from "../HomePageTitles";
-import { SpotifyAPIResponse } from "../../types";
+import { SpotifyArtistResponse } from "../../types";
 import "./HomePageBody.css";
 
 const HomePageBody = () => {
   const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState<SpotifyAPIResponse | null>(
-    null
-  );
+  const [searchResults, setSearchResults] =
+    useState<SpotifyArtistResponse | null>(null);
   const [isError, setIsError] = useState(false);
 
   return (

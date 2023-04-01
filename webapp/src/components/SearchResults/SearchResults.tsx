@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { SpotifyAPIResponse } from "../../types";
+import { useEffect, useState } from "react";
+import { SpotifyArtistResponse } from "../../types";
 import { useNavigate } from "react-router-dom";
 import "./SearchResults.css";
 
 type SearchResultsProps = {
-  searchResult: SpotifyAPIResponse | null;
-  setSearchResults: (searchResults: SpotifyAPIResponse | null) => void;
+  searchResult: SpotifyArtistResponse | null;
+  setSearchResults: (searchResults: SpotifyArtistResponse | null) => void;
 };
 
 const SearchResults = ({
@@ -33,6 +33,10 @@ const SearchResults = ({
       navigate(`/search/${mainArtist.id}`);
     }
   };
+
+  useEffect(() => {
+    console.log(searchResult);
+  });
 
   return (
     <div className="searchResultsContainer">

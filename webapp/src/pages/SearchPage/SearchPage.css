@@ -1,0 +1,23 @@
+.artistPageContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.artistNameTitle {
+  font-size: 5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.artistTags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  gap: 2rem;
+}

@@ -1,12 +1,12 @@
 import { useState, useEffect, KeyboardEvent, ChangeEvent } from "react";
 import spotifyApiInstance from "../../spotifyApiInstance";
-import { SpotifyAPIResponse } from "../../types";
+import { SpotifyArtistResponse } from "../../types";
 import "./SearchBar.css";
 
 type SearchBarProps = {
   search: string;
   setSearch: (search: string) => void;
-  setSearchResults: (searchResults: SpotifyAPIResponse) => void;
+  setSearchResults: (searchResults: SpotifyArtistResponse) => void;
   setIsError: (isError: boolean) => void;
 };
 
