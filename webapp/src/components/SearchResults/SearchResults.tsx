@@ -34,10 +34,6 @@ const SearchResults = ({
     }
   };
 
-  useEffect(() => {
-    console.log(searchResult);
-  });
-
   return (
     <div className="searchResultsContainer">
       <img

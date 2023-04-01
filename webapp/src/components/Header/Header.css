@@ -1,35 +1,35 @@
 .headerContainer {
-    width: 80%;
-    background-color: rgba(28,28,30,.8);
-    margin-top: 5rem;
-    border-radius: 2rem;
+  width: 80%;
+  background-color: rgba(28, 28, 30, 0.8);
+  margin-top: 5rem;
+  border-radius: 2rem;
 }
 
 .logo {
-    width: 15rem;
-    padding: 3.5rem 0;
-    margin-left: 2.5rem;
+  width: 15rem;
+  padding: 3.5rem 0;
+  margin-left: 2.5rem;
 }
 
 .divider {
-    border-left: 1px solid #999897;
-    height: 2.5rem;
-    margin: 0 1.5rem;
+  border-left: 1px solid #999897;
+  height: 2.5rem;
+  margin: 0 1.5rem;
 }
 
 .navLeft {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .headerLeftText {
-    color: #999897;
-    font-size: 1.7rem;
+  color: #999897;
+  font-size: 1.7rem;
 }
 
 @media only screen and (max-width: 767px) {
-    .title {
-        font-size: 6rem;
-    }
+  .title {
+    font-size: 6rem;
+  }
 }

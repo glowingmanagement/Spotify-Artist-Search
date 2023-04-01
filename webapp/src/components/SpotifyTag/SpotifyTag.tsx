@@ -1,11 +1,11 @@
 import "./SpotifyTag.css";
 
-type SpotifyTag = {
+type SpotifyTagTypes = {
   name: string;
   value: string;
 };
 
-const SpotifyTag = ({ name, value }: SpotifyTag) => {
+const SpotifyTag = ({ name, value }: SpotifyTagTypes) => {
   return (
     <div className="tagContainer">
       <h2 className="tagText">

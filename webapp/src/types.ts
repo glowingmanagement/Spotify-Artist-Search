@@ -57,7 +57,7 @@ export type SpotifyArtistProfileResponse = {
       spotify: string;
     };
     id: string;
-    images: {
+    image: {
       height: number;
       url: string;
       width: number;
@@ -65,5 +65,59 @@ export type SpotifyArtistProfileResponse = {
     release_date: string;
     total_tracks: number;
     trackName: string;
+  }[];
+};
+
+export type SpotifyArtistAlbums = {
+  albums: {
+    album_type: string;
+    artists: {
+      external_urls: {
+        spotify: string;
+      };
+      href: string;
+      id: string;
+      name: string;
+      type: string;
+      uri: string;
+    }[];
+    external_urls: {
+      spotify: string;
+    };
+    id: string;
+    image: {
+      height: number;
+      url: string;
+      width: number;
+    }[];
+    release_date: string;
+    total_tracks: number;
+    trackName: string;
+  }[];
+};
+
+export type Album = {
+  album_type: string;
+  artists: {
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    name: string;
+    type: string;
+    uri: string;
+  }[];
+  external_urls: {
+    spotify: string;
   };
+  id: string;
+  image: {
+    height: number;
+    url: string;
+    width: number;
+  };
+  release_date: string;
+  total_tracks: number;
+  trackName: string;
 };

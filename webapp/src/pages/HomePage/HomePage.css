@@ -1,16 +1,14 @@
 .homePageContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-
-
 @media only screen and (max-width: 767px) {
-    .homePageContainer {
-        width: 100%;
-    }
+  .homePageContainer {
+    width: 100%;
+  }
 }
