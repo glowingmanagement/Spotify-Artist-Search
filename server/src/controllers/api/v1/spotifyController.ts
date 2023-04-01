@@ -46,9 +46,12 @@ export const getArtistData = async (req: Request, res: Response) => {
 
 export const searchById = async (req: Request, res: Response) => {
   const artistId: string | undefined = req.params.id as string | undefined;
+  const pageNumber: number = parseInt(req.query.page as string) || 1;
+  const limit: number = parseInt(req.query.limit as string) || 1;
+  const offset = (pageNumber - 1) * limit;
   const accessToken = await getAccessToken();
   const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`;
-  const albumsUrl = `https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album,single&market=GB&limit=50`;
+  const albumsUrl = `https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album,single&market=GB&limit=${limit}&offset=${offset}`;
 
   try {
     const [artistResponse, albumsResponse] = await Promise.all([
@@ -84,6 +87,7 @@ export const searchById = async (req: Request, res: Response) => {
       artistPopularity: artistData.popularity,
       artistUri: artistData.uri,
       albums: filteredTrackData,
+      totalAlbums: trackData.total,
     };
 
     res.status(200).json({ searchResult });

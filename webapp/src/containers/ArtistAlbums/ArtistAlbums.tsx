@@ -1,5 +1,5 @@
 import AlbumCard from "../../components/AlbumCard";
-import { SpotifyArtistAlbums, Album } from "../../types";
+import { SpotifyArtistAlbums } from "../../types";
 import "./ArtistAlbums.css";
 
 type ArtistAlbumsTypes = {
@@ -7,7 +7,6 @@ type ArtistAlbumsTypes = {
 };
 
 const ArtistAlbums = ({ albums }: ArtistAlbumsTypes) => {
-  console.log(albums.albums);
   return (
     <div className="albumContainer">
       {albums.albums.map((album: any) => {

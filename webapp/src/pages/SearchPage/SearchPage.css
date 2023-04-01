@@ -14,3 +14,43 @@
   gap: 2rem;
   justify-content: center;
 }
+
+.paginationContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.pageNumberText {
+  font-size: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.paginationButton {
+  font-size: 5rem;
+  color: #fff;
+  cursor: pointer;
+  max-height: 5rem;
+}
+
+.artistInfoAndPageNumber {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+}
+
+.artistInfoAndPageNumber > *:first-child {
+  grid-column: 2;
+  margin: 0 auto;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  font-size: 5rem;
+}

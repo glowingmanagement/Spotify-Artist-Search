@@ -41,6 +41,7 @@ export type SpotifyArtistProfileResponse = {
   artistPopularity: number;
   followers: number;
   artistUrl: string;
+  totalAlbums: number;
   albums: {
     album_type: string;
     artists: {
@@ -93,6 +94,7 @@ export type SpotifyArtistAlbums = {
     release_date: string;
     total_tracks: number;
     trackName: string;
+    // totalAlbums: number;
   }[];
 };
 
