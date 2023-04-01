@@ -48,14 +48,18 @@ const SearchPage = () => {
       {searchResults && (
         <div>
           <div className="artistDetails">
-            <h1 className="artistNameTitle">{searchResults.artistName}</h1>
+            <div>
+              <h1 className="artistNameTitle">{searchResults.artistName}</h1>
+              <p className="artistGenreText">
+                {searchResults.genres.join(", ")}
+              </p>
+            </div>
             <img
               src={searchResults.artistImage.url}
               alt={`${searchResults.artistName} profile`}
               className="artistProfileImage"
             />
           </div>
-
           <div className="artistTags">
             <SpotifyTag
               name={"Followers"}

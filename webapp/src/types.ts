@@ -37,7 +37,7 @@ export type SpotifyArtistProfileResponse = {
     url: string;
     width: number;
   };
-  artistGenres: string[];
+  genres: string[];
   artistPopularity: number;
   followers: number;
   artistUrl: string;
