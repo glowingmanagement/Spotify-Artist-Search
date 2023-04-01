@@ -1,0 +1,49 @@
+.searchResultsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+}
+
+.profileImage {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+.confirmText {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 2rem auto;
+    display: block;
+    color: #fff;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.declineButton {
+    background-color: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .declineButton:hover {
+    background-color: #b33628;
+    border-color: #b33628;
+  }
+
+  

@@ -30,7 +30,7 @@ const getAccessToken = async (): Promise<string> => {
 export const getArtistData = async (req: Request, res: Response) => {
   const artistName: string | undefined = req.query.name as string | undefined;
   const accessToken: string = await getAccessToken();
-  const url: string = `https://api.spotify.com/v1/search?q=${artistName}&type=artist&limit=5`;
+  const url: string = `https://api.spotify.com/v1/search?q=${artistName}&type=artist&limit=10`;
   const response: AxiosResponse = await axios.get(url, {
     headers: {
       Authorization: `Bearer ${accessToken}`,

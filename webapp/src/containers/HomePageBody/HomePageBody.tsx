@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage";
 import SearchBar from "../../components/SearchBar";
 import SearchResults from "../../components/SearchResults";
@@ -13,22 +13,25 @@ const HomePageBody = () => {
   );
   const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
-    if (searchResults) {
-      console.log(searchResults);
-    }
-  }, [searchResults]);
-
   return (
     <div className="homePageBodyContainer">
-      <HomePageTitles />
-      <SearchBar
-        search={search}
-        setSearch={setSearch}
-        setSearchResults={setSearchResults}
-        setIsError={setIsError}
-      />
-      <SearchResults searchResult={searchResults} />
+      {!searchResults ? (
+        <>
+          <HomePageTitles />
+          <SearchBar
+            search={search}
+            setSearch={setSearch}
+            setSearchResults={setSearchResults}
+            setIsError={setIsError}
+          />
+        </>
+      ) : (
+        <SearchResults
+          searchResult={searchResults}
+          setSearchResults={setSearchResults}
+        />
+      )}
+
       {isError && <ErrorMessage />}
     </div>
   );

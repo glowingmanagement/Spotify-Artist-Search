@@ -1,67 +1,38 @@
 export type SpotifyAPIResponse = {
-  searchResults: {
-    artists: {
+  artists: {
+    href: string;
+    items: {
+      external_urls: {
+        spotify: string;
+      };
+      followers: {
+        href: null;
+        total: number;
+      };
+      genres: string[];
       href: string;
-      items: {
-        external_urls: {
-          spotify: string;
-        };
-        followers: {
-          href: null;
-          total: number;
-        };
-        genres: string[];
-        href: string;
-        id: string;
-        images: {
-          height: number;
-          url: string;
-          width: number;
-        }[];
-        name: string;
-        popularity: number;
-        type: string;
-        uri: string;
+      id: string;
+      images: {
+        height: number;
+        url: string;
+        width: number;
       }[];
-      limit: number;
-      next: null | string;
-      offset: number;
-      previous: null | string;
-      total: number;
-    };
-    tracks: {
-      href: string;
-      items: {
-        album: {
-          album_type: string;
-          artists: {
-            external_urls: {
-              spotify: string;
-            };
-            href: string;
-            id: string;
-            name: string;
-            type: string;
-            uri: string;
-          }[];
-          available_markets: string[];
-          external_urls: {
-            spotify: string;
-          };
-          href: string;
-          id: string;
-          images: {
-            height: number;
-            url: string;
-            width: number;
-          }[];
-          name: string;
-          release_date: string;
-          release_date_precision: string;
-          total_tracks: number;
-          type: string;
-          uri: string;
-        };
+      name: string;
+      popularity: number;
+      type: string;
+      uri: string;
+    }[];
+    limit: number;
+    next: null | string;
+    offset: number;
+    previous: null | string;
+    total: number;
+  };
+  tracks: {
+    href: string;
+    items: {
+      album: {
+        album_type: string;
         artists: {
           external_urls: {
             spotify: string;
@@ -73,30 +44,57 @@ export type SpotifyAPIResponse = {
           uri: string;
         }[];
         available_markets: string[];
-        disc_number: number;
-        duration_ms: number;
-        explicit: boolean;
-        external_ids: {
-          isrc: string;
-        };
         external_urls: {
           spotify: string;
         };
         href: string;
         id: string;
-        is_local: boolean;
+        images: {
+          height: number;
+          url: string;
+          width: number;
+        }[];
         name: string;
-        popularity: number;
-        preview_url: string;
-        track_number: number;
+        release_date: string;
+        release_date_precision: string;
+        total_tracks: number;
+        type: string;
+        uri: string;
+      };
+      artists: {
+        external_urls: {
+          spotify: string;
+        };
+        href: string;
+        id: string;
+        name: string;
         type: string;
         uri: string;
       }[];
-      limit: number;
-      next: null | string;
-      offset: number;
-      previous: null | string;
-      total: number;
-    };
+      available_markets: string[];
+      disc_number: number;
+      duration_ms: number;
+      explicit: boolean;
+      external_ids: {
+        isrc: string;
+      };
+      external_urls: {
+        spotify: string;
+      };
+      href: string;
+      id: string;
+      is_local: boolean;
+      name: string;
+      popularity: number;
+      preview_url: string;
+      track_number: number;
+      type: string;
+      uri: string;
+    }[];
+    limit: number;
+    next: null | string;
+    offset: number;
+    previous: null | string;
+    total: number;
   };
 };
