@@ -32,7 +32,11 @@ export type SpotifyArtistResponse = {
 
 export type SpotifyArtistProfileResponse = {
   artistName: string;
-  artistImage: string[];
+  artistImage: {
+    height: number;
+    url: string;
+    width: number;
+  };
   artistGenres: string[];
   artistPopularity: number;
   followers: number;

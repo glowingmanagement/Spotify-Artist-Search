@@ -47,7 +47,15 @@ const SearchPage = () => {
       {isError && <ErrorMessage />}
       {searchResults && (
         <div>
-          <h1 className="artistNameTitle">{searchResults.artistName}</h1>
+          <div className="artistDetails">
+            <h1 className="artistNameTitle">{searchResults.artistName}</h1>
+            <img
+              src={searchResults.artistImage.url}
+              alt={`${searchResults.artistName} profile`}
+              className="artistProfileImage"
+            />
+          </div>
+
           <div className="artistTags">
             <SpotifyTag
               name={"Followers"}
