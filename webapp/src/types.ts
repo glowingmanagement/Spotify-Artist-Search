@@ -123,3 +123,81 @@ export type Album = {
   total_tracks: number;
   trackName: string;
 };
+
+export type SpotifyAlbumResponse = {
+  artists: {
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    name: string;
+    type: string;
+    uri: string;
+  }[];
+  albumLabel: string;
+  albumName: string;
+  albumReleaseDate: string;
+  albumTotalTracks: number;
+  albumPopularity: number;
+  albumTracks: {
+    artists: {
+      external_urls: {
+        spotify: string;
+      };
+      href: string;
+      id: string;
+      name: string;
+      type: string;
+      uri: string;
+    }[];
+    available_markets: string[];
+    disc_number: number;
+    duration_ms: number;
+    explicit: boolean;
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    is_local: boolean;
+    name: string;
+    preview_url: string;
+    track_number: number;
+    type: string;
+    uri: string;
+  }[];
+  albumImage: {
+    height: number;
+    url: string;
+    width: number;
+  };
+};
+
+export type SpotifyAlbumTracks = {
+  artists: {
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    name: string;
+    type: string;
+    uri: string;
+  }[];
+  available_markets: string[];
+  disc_number: number;
+  duration_ms: number;
+  explicit: boolean;
+  external_urls: {
+    spotify: string;
+  };
+  href: string;
+  id: string;
+  is_local: boolean;
+  name: string;
+  preview_url: string;
+  track_number: number;
+  type: string;
+  uri: string;
+};

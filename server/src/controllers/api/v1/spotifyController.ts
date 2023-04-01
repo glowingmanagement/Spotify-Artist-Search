@@ -101,3 +101,38 @@ export const searchById = async (req: Request, res: Response) => {
     res.status(err.status).json(err);
   }
 };
+
+export const getAlbumData = async (req: Request, res: Response) => {
+  const albumId: string | undefined = req.params.id as string | undefined;
+  const accessToken: string = await getAccessToken();
+  const url: string = `https://api.spotify.com/v1/albums/${albumId}`;
+  try {
+    const response: AxiosResponse = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    console.log(response.data);
+
+    const albumData = {
+      artists: response.data.artists,
+      albumName: response.data.name,
+      albumImage: response.data.images[0],
+      albumReleaseDate: response.data.release_date,
+      albumTotalTracks: response.data.total_tracks,
+      albumTracks: response.data.tracks.items,
+      albumPopularity: response.data.popularity,
+      albumLabel: response.data.label,
+    };
+    res.status(200).json(albumData);
+  } catch (error: any) {
+    console.log(error);
+    const err: ErrorResponse = {
+      status: error.response?.status || 500,
+      message: error.message,
+    };
+
+    res.status(err.status).json(err);
+  }
+};

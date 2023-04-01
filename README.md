@@ -3,9 +3,10 @@
 ## To-Do
 
 - [ ] View and select history
-- [ ] Make albums clickable
+- [X] Make albums clickable
 - [ ] Display tracks from albums
 - [ ] Check all files
 - [ ] Refactor
 - [ ] Write README with instructions
 - [ ] Mobile Responsive
+- [ ] Add similar artists on search

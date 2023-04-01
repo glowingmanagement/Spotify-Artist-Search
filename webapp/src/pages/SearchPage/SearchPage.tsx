@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import SpotifyTag from "../../components/SpotifyTag";
 import ErrorMessage from "../../components/ErrorMessage";
 import spotifyApiInstance from "../../spotifyApiInstance";
 import { SpotifyArtistProfileResponse } from "../../types";
