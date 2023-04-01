@@ -10,7 +10,7 @@ const AlbumCard = ({ album }: AlbumCardTypes) => {
     <div className="albumCardContainer">
       <img src={album.image.url} alt={album.trackName} className="albumImage" />
       <p className="albumInfoText">
-        {album.trackName} - {album.release_date.split("-")[0]}
+        {album.trackName} ({album.release_date.split("-")[0]})
       </p>
     </div>
   );

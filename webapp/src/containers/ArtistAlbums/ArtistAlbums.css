@@ -5,3 +5,7 @@
   gap: 2rem;
   margin-bottom: 4rem;
 }
+
+.albumLink {
+  text-decoration: none;
+}

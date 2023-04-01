@@ -8,3 +8,4 @@
 - [ ] Check all files
 - [ ] Refactor
 - [ ] Write README with instructions
+- [ ] Mobile Responsive
