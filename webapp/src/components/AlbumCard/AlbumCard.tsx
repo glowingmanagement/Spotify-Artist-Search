@@ -6,6 +6,7 @@ type AlbumCardTypes = {
 };
 
 const AlbumCard = ({ album }: AlbumCardTypes) => {
+  console.log(album);
   return (
     <div className="albumCardContainer">
       <img src={album.image.url} alt={album.trackName} className="albumImage" />
