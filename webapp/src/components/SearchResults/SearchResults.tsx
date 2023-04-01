@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SpotifyAPIResponse } from "../../types";
+import { useNavigate } from "react-router-dom";
 import "./SearchResults.css";
 
 type SearchResultsProps = {
@@ -11,7 +12,7 @@ const SearchResults = ({
   searchResult,
   setSearchResults,
 }: SearchResultsProps) => {
-  console.log(searchResult);
+  const navigate = useNavigate();
   const [mainArtist, setMainArtist] = useState(searchResult?.artists.items[0]);
   const defaultImage: string =
     "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
@@ -27,6 +28,12 @@ const SearchResults = ({
     }
   };
 
+  const selectArtist = () => {
+    if (mainArtist) {
+      navigate(`/search/${mainArtist.id}`);
+    }
+  };
+
   return (
     <div className="searchResultsContainer">
       <img
@@ -38,7 +45,7 @@ const SearchResults = ({
         Is {mainArtist?.name} who you're searching for?
       </h2>
       <div className="buttonContainer">
-        <button onClick={() => console.log("submit")} className="submitButton">
+        <button onClick={() => selectArtist()} className="submitButton">
           Yes
         </button>
         <button onClick={() => changeArtist()} className="declineButton">
