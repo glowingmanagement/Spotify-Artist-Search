@@ -50,7 +50,6 @@ export const searchById = async (req: Request, res: Response) => {
   const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`;
   const albumsUrl = `https://api.spotify.com/v1/artists/${artistId}/albums`;
 
-  // fetch artist data and album data in parallel
   try {
     const [artistResponse, albumsResponse] = await Promise.all([
       axios.get(artistUrl, {
@@ -70,8 +69,8 @@ export const searchById = async (req: Request, res: Response) => {
         artists: track.artists,
         external_urls: track.external_urls,
         id: track.id,
-        image: track.images[0],
-        name: track.name,
+        image: track.images && track.images.length ? track.images[0] : null,
+        trackName: track.name,
         release_date: track.release_date,
         total_tracks: track.total_tracks,
       };
@@ -80,21 +79,14 @@ export const searchById = async (req: Request, res: Response) => {
     const searchResult = {
       artistName: artistData.name,
       followers: artistData.followers.total,
-      artistImage: artistData.image[0],
+      artistImage: artistData.images[0],
       genres: artistData.genres,
-      artistPopularity: artistData.artist.popularity,
+      artistPopularity: artistData.popularity,
       artistUri: artistData.uri,
       albums: filteredTrackData,
     };
 
-    const albums = trackData.items.map(async (album: any) => ({
-      name: album.name,
-      release_date: album.release_date,
-      image_url: album.images.length ? album.images[0].url : null,
-      tracks: await getAlbumTracks(album.id),
-    }));
-
-    res.status(200).json({ searchResult, albums });
+    res.status(200).json({ searchResult });
   } catch (error: any) {
     console.log(error);
     const err: ErrorResponse = {
@@ -104,16 +96,4 @@ export const searchById = async (req: Request, res: Response) => {
 
     res.status(err.status).json(err);
   }
-};
-
-const getAlbumTracks = async (albumId: any) => {
-  const accessToken = await getAccessToken();
-  const tracksUrl = `https://api.spotify.com/v1/albums/${albumId}/tracks`;
-  const tracksResponse = await axios.get(tracksUrl, {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
-  return tracksResponse.data.items.map((track: any) => ({
-    name: track.name,
-    duration_ms: track.duration_ms,
-  }));
 };

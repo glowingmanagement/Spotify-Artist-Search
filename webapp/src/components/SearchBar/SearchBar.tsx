@@ -47,16 +47,16 @@ const SearchBar = ({
     }
   };
 
-  const searchForArtist = () => {
-    spotifyApiInstance
-      .get(`api/search?name=${search}`)
-      .then((response) => {
-        setSearchResults(response.data);
-      })
-      .catch((error) => {
-        setIsError(true);
-        console.log(error);
-      });
+  const searchForArtist = async () => {
+    try {
+      const response = await spotifyApiInstance.get(
+        `api/search?name=${search}`
+      );
+      setSearchResults(response.data);
+    } catch (error) {
+      setIsError(true);
+      console.log(error);
+    }
   };
 
   useEffect(() => {
