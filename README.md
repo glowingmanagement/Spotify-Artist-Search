@@ -4,7 +4,7 @@
 
 - [ ] View and select history
 - [X] Make albums clickable
-- [ ] Display tracks from albums
+- [X] Display tracks from albums
 - [ ] Check all files
 - [ ] Refactor
 - [ ] Write README with instructions

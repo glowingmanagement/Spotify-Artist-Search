@@ -52,19 +52,24 @@ export const searchById = async (req: Request, res: Response) => {
   const accessToken = await getAccessToken();
   const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`;
   const albumsUrl = `https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album,single&market=GB&limit=${limit}&offset=${offset}`;
+  const relatedArtistsUrl = `https://api.spotify.com/v1/artists/${artistId}/related-artists`;
 
   try {
-    const [artistResponse, albumsResponse] = await Promise.all([
+    const [artistResponse, albumsResponse, relatedArtists] = await Promise.all([
       axios.get(artistUrl, {
         headers: { Authorization: `Bearer ${accessToken}` },
       }),
       axios.get(albumsUrl, {
         headers: { Authorization: `Bearer ${accessToken}` },
       }),
+      axios.get(relatedArtistsUrl, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }),
     ]);
 
     const artistData = artistResponse.data;
     const trackData = albumsResponse.data;
+    const relatedArtistsData = relatedArtists.data;
 
     const filteredTrackData = trackData.items.map((track: any) => {
       return {
@@ -88,6 +93,7 @@ export const searchById = async (req: Request, res: Response) => {
       artistUri: artistData.uri,
       albums: filteredTrackData,
       totalAlbums: trackData.total,
+      relatedArtists: relatedArtistsData,
     };
 
     res.status(200).json({ searchResult });
@@ -112,8 +118,6 @@ export const getAlbumData = async (req: Request, res: Response) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
-    console.log(response.data);
 
     const albumData = {
       artists: response.data.artists,

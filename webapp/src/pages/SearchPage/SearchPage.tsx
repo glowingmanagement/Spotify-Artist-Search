@@ -83,6 +83,10 @@ const SearchPage = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(searchResults);
+  }, [searchResults]);
+
   return (
     <div className="artistPageContainer">
       {searchResults && (
