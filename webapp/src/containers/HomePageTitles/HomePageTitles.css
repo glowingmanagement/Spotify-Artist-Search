@@ -1,0 +1,33 @@
+.subtitle {
+    color: #0BADFE;
+    padding-top: 6.5rem;
+    font-size: 2rem;
+    font-weight: 200;
+}
+
+.title {
+    color: #fff;
+    font-size: 8rem;
+    line-height: 10rem;
+    padding-top: 3rem;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    text-align: center;
+    gap: 0rem;
+}
+
+
+@media only screen and (max-width: 1203px) {
+    .homePageContainer {
+        width: 100%;
+    }
+    .title {
+        font-size: 6rem;
+    }
+}
