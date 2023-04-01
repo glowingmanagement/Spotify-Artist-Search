@@ -1,12 +1,25 @@
 import { useState, useEffect, KeyboardEvent, ChangeEvent } from "react";
+import spotifyApiInstance from "../../spotifyApiInstance";
 import "./SearchBar.css";
 
-const SearchBar = () => {
-  const [search, setSearch] = useState("");
+type SearchBarProps = {
+  search: string;
+  setSearch: (search: string) => void;
+  setSearchResults: (searchResults: string) => void;
+  setIsError: (isError: boolean) => void;
+};
+
+const SearchBar = ({
+  search,
+  setSearch,
+  setSearchResults,
+  setIsError,
+}: SearchBarProps) => {
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
 
   const handleSearch = () => {
     addToHistory();
+    searchForArtist();
   };
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -31,6 +44,18 @@ const SearchBar = () => {
     } else {
       setSearchHistory([search.toLowerCase(), ...searchHistory]);
     }
+  };
+
+  const searchForArtist = () => {
+    spotifyApiInstance
+      .get(`api/search?name=${search}`)
+      .then((response) => {
+        setSearchResults(response.data);
+      })
+      .catch((error) => {
+        setIsError(true);
+        console.log(error);
+      });
   };
 
   useEffect(() => {
