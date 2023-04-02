@@ -6,11 +6,10 @@ type DisplayHistoryProps = {
 };
 
 const DisplayHistory = ({ history }: DisplayHistoryProps) => {
-  console.log(history);
   return (
     <div className="displayHistory">
       {history.map((item: any) => (
-        <HistoryItem key={item.name} item={item} />
+        <HistoryItem key={item.id} item={item} />
       ))}
     </div>
   );

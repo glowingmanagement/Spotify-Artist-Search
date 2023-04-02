@@ -98,7 +98,6 @@ export const searchById = async (req: Request, res: Response) => {
 
     res.status(200).json({ searchResult });
   } catch (error: any) {
-    console.log(error);
     const err: ErrorResponse = {
       status: error.response?.status || 500,
       message: error.message,
@@ -131,7 +130,6 @@ export const getAlbumData = async (req: Request, res: Response) => {
     };
     res.status(200).json(albumData);
   } catch (error: any) {
-    console.log(error);
     const err: ErrorResponse = {
       status: error.response?.status || 500,
       message: error.message,

@@ -42,7 +42,6 @@ const SearchBar = ({
       setSearchResults(response.data);
     } catch (error) {
       setIsError(true);
-      console.log(error);
     }
   };
 

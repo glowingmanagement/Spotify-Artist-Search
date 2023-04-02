@@ -26,6 +26,7 @@ const AlbumTrackRow = ({
   };
 
   const handlePlayPause = () => {
+    console.log(track);
     onPlayPause(track.id);
   };
 
@@ -46,11 +47,14 @@ const AlbumTrackRow = ({
   return (
     <div className="albumTrackRowContainer">
       <div className="trackRowInfo">
-        <FontAwesomeIcon
-          icon={isPlaying ? faPauseCircle : faPlayCircle}
-          onClick={handlePlayPause}
-          className="playButton"
-        />
+        {track.preview_url && (
+          <FontAwesomeIcon
+            icon={isPlaying ? faPauseCircle : faPlayCircle}
+            onClick={handlePlayPause}
+            className="playButton"
+          />
+        )}
+
         <div className="trackRowContainer">
           <h2>{track.track_number}.</h2>
           <h2>{track.name}</h2>

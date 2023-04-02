@@ -49,7 +49,6 @@ const SearchPage = () => {
       checkIfLastPage();
     } catch (error) {
       setIsError(true);
-      console.log(error);
     }
   };
 
@@ -71,7 +70,6 @@ const SearchPage = () => {
         setSearchResults(response.data.searchResult);
       } catch (error) {
         setIsError(true);
-        console.log(error);
       }
     }
   };
@@ -86,7 +84,6 @@ const SearchPage = () => {
         setSearchResults(response.data.searchResult);
       } catch (error) {
         setIsError(true);
-        console.log(error);
       }
     }
   };
@@ -119,7 +116,6 @@ const SearchPage = () => {
 
   useEffect(() => {
     addToHistory();
-    console.log(searchResults);
   }, [searchResults]);
 
   useEffect(() => {

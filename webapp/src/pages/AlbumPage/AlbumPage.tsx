@@ -18,7 +18,6 @@ const AlbumPage = () => {
       setAlbumData(response.data);
     } catch (error) {
       setIsError(true);
-      console.log(error);
     }
   };
 

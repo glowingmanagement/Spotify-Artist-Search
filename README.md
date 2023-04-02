@@ -56,7 +56,7 @@ This is a simple web app that allows you to search for an artist using the Spoti
 - [X] Display tracks from albums
 - [ ] Check all files
 - [ ] Refactor
-- [ ] Write README with instructions
+- [X] Write README with instructions
 - [X] Mobile Responsive
 - [X] Add similar artists on search
 - [ ] Add page number to URL so back button works

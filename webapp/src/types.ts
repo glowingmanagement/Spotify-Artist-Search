@@ -1,3 +1,33 @@
+type Image = {
+  height: number;
+  url: string;
+  width: number;
+};
+
+type Artist = {
+  external_urls: {
+    spotify: string;
+  };
+  href: string;
+  id: string;
+  name: string;
+  type: string;
+  uri: string;
+};
+
+export type Album = {
+  album_type: string;
+  artists: Artist[];
+  external_urls: {
+    spotify: string;
+  };
+  id: string;
+  image: Image;
+  release_date: string;
+  total_tracks: number;
+  trackName: string;
+};
+
 export type SpotifyArtistResponse = {
   artists: {
     href: string;
@@ -12,11 +42,7 @@ export type SpotifyArtistResponse = {
       genres: string[];
       href: string;
       id: string;
-      images: {
-        height: number;
-        url: string;
-        width: number;
-      }[];
+      images: Image[];
       name: string;
       popularity: number;
       type: string;
@@ -32,41 +58,13 @@ export type SpotifyArtistResponse = {
 
 export type SpotifyArtistProfileResponse = {
   artistName: string;
-  artistImage: {
-    height: number;
-    url: string;
-    width: number;
-  };
+  artistImage: Image;
   genres: string[];
   artistPopularity: number;
   followers: number;
   artistUrl: string;
   totalAlbums: number;
-  albums: {
-    album_type: string;
-    artists: {
-      external_urls: {
-        spotify: string;
-      };
-      href: string;
-      id: string;
-      name: string;
-      type: string;
-      uri: string;
-    }[];
-    external_urls: {
-      spotify: string;
-    };
-    id: string;
-    image: {
-      height: number;
-      url: string;
-      width: number;
-    }[];
-    release_date: string;
-    total_tracks: number;
-    trackName: string;
-  }[];
+  albums: Album[];
   relatedArtists: {
     artists: {
       external_urls: {
@@ -79,11 +77,7 @@ export type SpotifyArtistProfileResponse = {
       genres: string[];
       href: string;
       id: string;
-      images: {
-        height: number;
-        url: string;
-        width: number;
-      }[];
+      images: Image[];
       name: string;
       popularity: number;
       type: string;
@@ -93,86 +87,18 @@ export type SpotifyArtistProfileResponse = {
 };
 
 export type SpotifyArtistAlbums = {
-  albums: {
-    album_type: string;
-    artists: {
-      external_urls: {
-        spotify: string;
-      };
-      href: string;
-      id: string;
-      name: string;
-      type: string;
-      uri: string;
-    }[];
-    external_urls: {
-      spotify: string;
-    };
-    id: string;
-    image: {
-      height: number;
-      url: string;
-      width: number;
-    }[];
-    release_date: string;
-    total_tracks: number;
-    trackName: string;
-  }[];
-};
-
-export type Album = {
-  album_type: string;
-  artists: {
-    external_urls: {
-      spotify: string;
-    };
-    href: string;
-    id: string;
-    name: string;
-    type: string;
-    uri: string;
-  }[];
-  external_urls: {
-    spotify: string;
-  };
-  id: string;
-  image: {
-    height: number;
-    url: string;
-    width: number;
-  };
-  release_date: string;
-  total_tracks: number;
-  trackName: string;
+  albums: Album[];
 };
 
 export type SpotifyAlbumResponse = {
-  artists: {
-    external_urls: {
-      spotify: string;
-    };
-    href: string;
-    id: string;
-    name: string;
-    type: string;
-    uri: string;
-  }[];
+  artists: Artist[];
   albumLabel: string;
   albumName: string;
   albumReleaseDate: string;
   albumTotalTracks: number;
   albumPopularity: number;
   albumTracks: {
-    artists: {
-      external_urls: {
-        spotify: string;
-      };
-      href: string;
-      id: string;
-      name: string;
-      type: string;
-      uri: string;
-    }[];
+    artists: Artist[];
     available_markets: string[];
     disc_number: number;
     duration_ms: number;
@@ -189,24 +115,11 @@ export type SpotifyAlbumResponse = {
     type: string;
     uri: string;
   }[];
-  albumImage: {
-    height: number;
-    url: string;
-    width: number;
-  };
+  albumImage: Image;
 };
 
 export type SpotifyAlbumTracks = {
-  artists: {
-    external_urls: {
-      spotify: string;
-    };
-    href: string;
-    id: string;
-    name: string;
-    type: string;
-    uri: string;
-  }[];
+  artists: Artist[];
   available_markets: string[];
   disc_number: number;
   duration_ms: number;
@@ -236,11 +149,7 @@ export type SpotifyRelatedArtistsResponse = {
     genres: string[];
     href: string;
     id: string;
-    images: {
-      height: number;
-      url: string;
-      width: number;
-    }[];
+    images: Image[];
     name: string;
     popularity: number;
     type: string;

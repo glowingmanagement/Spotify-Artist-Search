@@ -9,7 +9,6 @@ type ArtistAlbumsTypes = {
 };
 
 const ArtistAlbums = ({ albums }: ArtistAlbumsTypes) => {
-  console.log(albums);
   return (
     <div className="albumContainer">
       {albums.albums.map((album: any) => {
