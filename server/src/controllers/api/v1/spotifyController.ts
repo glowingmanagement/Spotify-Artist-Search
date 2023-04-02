@@ -100,8 +100,6 @@ export const searchById = async (req: Request, res: Response) => {
     const trackData = albumsResponse;
     const relatedArtistsData = relatedArtists;
 
-    console.log(albumsResponse);
-
     const filteredTrackData = trackData.items.map((track: any) => {
       return {
         album_type: track.album_type,
@@ -129,7 +127,6 @@ export const searchById = async (req: Request, res: Response) => {
 
     res.status(200).json({ searchResult });
   } catch (error: any) {
-    console.log(error);
     const err: ErrorResponse = {
       status: error.response?.status || 500,
       message: error.message,
