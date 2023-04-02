@@ -7,6 +7,7 @@ import SpotifyTag from "../../components/SpotifyTag";
 import AlbumTrackRow from "../../components/AlbumTrackRow";
 
 import "./AlbumPage.css";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const AlbumPage = () => {
   const { id } = useParams();
@@ -66,6 +67,12 @@ const AlbumPage = () => {
           );
         })}
       </div>
+      {isError && (
+        <ErrorMessage
+          title="Oops! Something went wrong"
+          message="Please try again later"
+        />
+      )}
     </div>
   );
 };
