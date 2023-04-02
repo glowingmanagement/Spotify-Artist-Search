@@ -33,4 +33,16 @@
   .title {
     font-size: 6rem;
   }
+
+  .divider {
+    display: none;
+  }
+
+  .headerLeftText {
+    display: none;
+  }
+
+  .navLeft {
+    justify-content: center;
+  }
 }

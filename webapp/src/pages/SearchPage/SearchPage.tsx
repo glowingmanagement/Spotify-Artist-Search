@@ -19,7 +19,7 @@ const SearchPage = () => {
     useState<SpotifyArtistProfileResponse | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
-  const limit = 12;
+  const limit = 10;
 
   const checkIfLastPage = () => {
     if (searchResults) {

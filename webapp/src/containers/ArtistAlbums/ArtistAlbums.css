@@ -9,3 +9,9 @@
 .albumLink {
   text-decoration: none;
 }
+
+@media screen and (max-width: 767px) {
+  .albumContainer {
+    flex-direction: column;
+  }
+}

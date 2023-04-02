@@ -33,3 +33,22 @@
   font-size: 4rem;
   font-weight: 700;
 }
+
+@media screen and (max-width: 767px) {
+  .albumPreviewContainer {
+    margin: 2rem;
+    width: 100%;
+  }
+
+  .albumInfoContainer {
+    flex-direction: column;
+  }
+
+  .albumInfoTextContainer {
+    gap: 1rem;
+  }
+
+  .albumTitle {
+    font-size: 3rem;
+  }
+}
