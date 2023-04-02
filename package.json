@@ -1,0 +1,31 @@
+{
+  "name": "unhurd-assessment",
+  "version": "1.0.0",
+  "description": "This is a simple web app that allows you to search for an artist and view their albums and tracks. It also allows you to view your search history.",
+  "main": "index.js",
+  "scripts": {
+    "webapp:start": "cd webapp && npm start",
+    "webapp:build": "cd webapp && npm run build",
+    "server:start": "cd server && npm start",
+    "server:build": "cd server && npm run build",
+    "webapp:install": "cd webapp && npm install",
+    "server:install": "cd server && npm install",
+    "install": "npm run webapp:install && npm run server:install",
+    "start": "concurrently \"npm run webapp:start\" \"npm run server:start\"",
+    "build": "npm run webapp:build && npm run server:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glowingmanagement/unhurd-assessment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glowingmanagement/unhurd-assessment/issues"
+  },
+  "homepage": "https://github.com/glowingmanagement/unhurd-assessment#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
