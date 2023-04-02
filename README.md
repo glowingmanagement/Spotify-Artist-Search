@@ -54,8 +54,8 @@ This is a simple web app that allows you to search for an artist using the Spoti
 - [X] View and select history
 - [X] Make albums clickable
 - [X] Display tracks from albums
-- [ ] Check all files
-- [ ] Refactor
+- [X] Check all files
+- [X] Refactor
 - [X] Write README with instructions
 - [X] Mobile Responsive
 - [X] Add similar artists on search
