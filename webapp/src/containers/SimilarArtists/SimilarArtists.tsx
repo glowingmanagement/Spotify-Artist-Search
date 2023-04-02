@@ -1,6 +1,7 @@
-import "./SimilarArtists.css";
 import { SpotifyRelatedArtistsResponse } from "../../types";
 import SimilarArtistCard from "../../components/SimilarArtistCard";
+
+import "./SimilarArtists.css";
 
 type SimilarArtistsProps = {
   relatedArtists: SpotifyRelatedArtistsResponse;

@@ -1,6 +1,7 @@
-import "./ArtistInfo.css";
 import { SpotifyArtistProfileResponse } from "../../types";
 import SpotifyTag from "../../components/SpotifyTag";
+
+import "./ArtistInfo.css";
 
 type ArtistInfoProps = {
   searchResults: SpotifyArtistProfileResponse;

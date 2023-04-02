@@ -1,9 +1,11 @@
 import { useState } from "react";
+
+import { SpotifyArtistResponse } from "../../types";
 import ErrorMessage from "../../components/ErrorMessage";
 import SearchBar from "../../components/SearchBar";
 import SearchResults from "../../components/SearchResults";
 import HomePageTitles from "../../containers/HomePageTitles";
-import { SpotifyArtistResponse } from "../../types";
+
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -11,9 +13,10 @@ const HomePage = () => {
   const [searchResults, setSearchResults] =
     useState<SpotifyArtistResponse | null>(null);
   const [isError, setIsError] = useState(false);
+
   return (
     <div className="homePageBodyContainer">
-      {!searchResults ? (
+      {!searchResults || searchResults.artists.items.length === 0 ? (
         <>
           <HomePageTitles />
           <SearchBar
@@ -22,6 +25,12 @@ const HomePage = () => {
             setSearchResults={setSearchResults}
             setIsError={setIsError}
           />
+          {searchResults && searchResults.artists.items.length === 0 && (
+            <ErrorMessage
+              title="Couldn't find any artists with that name"
+              message="Please try again"
+            />
+          )}
         </>
       ) : (
         <SearchResults

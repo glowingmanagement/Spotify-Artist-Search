@@ -1,4 +1,5 @@
 import { Album } from "../../types";
+
 import "./AlbumCard.css";
 
 type AlbumCardTypes = {

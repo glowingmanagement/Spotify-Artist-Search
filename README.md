@@ -7,7 +7,7 @@ This is a simple web app that allows you to search for an artist using the Spoti
 ## Requirements
 
 - [Node.js](https://nodejs.org/en/)
-- Create a Spotify app and get your client ID and secret [here](https://developer.spotify.com/dashboard/applications)
+- Create a Spotify app and get your client ID and secret [here](https://developer.spotify.com/)
 
 ## Installation
 

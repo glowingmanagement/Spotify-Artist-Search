@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
-import { SpotifyAlbumTracks } from "../../types";
-import "./AlbumTrackRow.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
+
+import { SpotifyAlbumTracks } from "../../types";
+
+import "./AlbumTrackRow.css";
 
 type AlbumTrackRowType = {
   track: SpotifyAlbumTracks;

@@ -1,7 +1,9 @@
 import { useState, useEffect, KeyboardEvent, ChangeEvent } from "react";
-import spotifyApiInstance from "../../spotifyApiInstance";
+
 import { SpotifyArtistResponse } from "../../types";
+import spotifyApiInstance from "../../spotifyApiInstance";
 import DisplayHistory from "../DisplayHistory";
+
 import "./SearchBar.css";
 
 type SearchBarProps = {

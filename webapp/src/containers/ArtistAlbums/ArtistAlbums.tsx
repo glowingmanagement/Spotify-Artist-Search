@@ -1,8 +1,10 @@
-import AlbumCard from "../../components/AlbumCard";
-import { SpotifyArtistAlbums } from "../../types";
 import { Link } from "react-router-dom";
-import "./ArtistAlbums.css";
+
+import { SpotifyArtistAlbums } from "../../types";
+import AlbumCard from "../../components/AlbumCard";
 import ErrorMessage from "../../components/ErrorMessage";
+
+import "./ArtistAlbums.css";
 
 type ArtistAlbumsTypes = {
   albums: SpotifyArtistAlbums;

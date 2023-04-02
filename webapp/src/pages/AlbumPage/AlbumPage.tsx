@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { SpotifyAlbumResponse } from "../../types";
 import spotifyApiInstance from "../../spotifyApiInstance";
-import "./AlbumPage.css";
 import SpotifyTag from "../../components/SpotifyTag";
 import AlbumTrackRow from "../../components/AlbumTrackRow";
+
+import "./AlbumPage.css";
 
 const AlbumPage = () => {
   const { id } = useParams();

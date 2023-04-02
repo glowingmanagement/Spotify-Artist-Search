@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import ErrorMessage from "../../components/ErrorMessage";
-import spotifyApiInstance from "../../spotifyApiInstance";
-import { SpotifyArtistProfileResponse } from "../../types";
-import "./ArtistPage.css";
-import ArtistInfo from "../../containers/ArtistInfo";
-import ArtistAlbums from "../../containers/ArtistAlbums";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+
+import { SpotifyArtistProfileResponse } from "../../types";
+import ErrorMessage from "../../components/ErrorMessage";
+import spotifyApiInstance from "../../spotifyApiInstance";
+import ArtistInfo from "../../containers/ArtistInfo";
+import ArtistAlbums from "../../containers/ArtistAlbums";
 import SimilarArtists from "../../containers/SimilarArtists";
+
+import "./ArtistPage.css";
 
 const ArtistPage = () => {
   const { id } = useParams();

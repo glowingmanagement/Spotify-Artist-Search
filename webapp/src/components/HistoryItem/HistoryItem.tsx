@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import "./HistoryItem.css";
 
 type HistoryItemProps = {

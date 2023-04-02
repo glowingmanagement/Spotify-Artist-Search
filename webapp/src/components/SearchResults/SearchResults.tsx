@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { SpotifyArtistResponse } from "../../types";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { SpotifyArtistResponse } from "../../types";
+
 import "./SearchResults.css";
 
 type SearchResultsProps = {

@@ -1,4 +1,5 @@
 import HistoryItem from "../HistoryItem";
+
 import "./DisplayHistory.css";
 
 type DisplayHistoryProps = {
