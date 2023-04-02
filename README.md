@@ -8,7 +8,6 @@ This is a simple web app that allows you to search for an artist using the Spoti
 
 - [Node.js](https://nodejs.org/en/)
 - Create a Spotify app and get your client ID and secret [here](https://developer.spotify.com/dashboard/applications)
-- Add your client ID and secret to the `.env` file in the server directory (see `.env.example` for reference)
 
 ## Installation
 
@@ -30,19 +29,21 @@ This is a simple web app that allows you to search for an artist using the Spoti
     npm install
     ```
 
-4. Build the app by running:
+4. Add your client ID and secret to the `.env` file in the server directory (see `.env.example` for reference)
+
+5. Build the app by running:
 
     ```bash
     npm run build
     ```
 
-5. Start the server by running:
+6. Start the server by running:
 
     ```bash
     npm start
     ```
 
-6. Open your browser and go to:
+7. Open your browser and go to:
 
     ```bash
     http://localhost:3000
