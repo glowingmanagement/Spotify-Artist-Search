@@ -28,7 +28,6 @@ const AlbumTrackRow = ({
   };
 
   const handlePlayPause = () => {
-    console.log(track);
     onPlayPause(track.id);
   };
 
