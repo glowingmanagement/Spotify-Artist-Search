@@ -20,20 +20,25 @@ const getAccessToken = async (): Promise<string> => {
   }
 
   const url: string = `https://accounts.spotify.com/api/token`;
-  const response: AxiosResponse = await axios.post(
-    url,
-    "grant_type=client_credentials",
-    {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `Basic ${Buffer.from(
-          `${clientId}:${clientSecret}`
-        ).toString("base64")}`,
-      },
-    }
-  );
-  console.log("Access token response", response.data.access_token);
-  return response.data.access_token;
+  try {
+    const response: AxiosResponse = await axios.post(
+      url,
+      "grant_type=client_credentials",
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Basic ${Buffer.from(
+            `${clientId}:${clientSecret}`
+          ).toString("base64")}`,
+        },
+      }
+    );
+    console.log("Access token response", response);
+    return response.data.access_token;
+  } catch (error) {
+    console.error("Error getting access token:", error);
+    throw error;
+  }
 };
 
 export const getArtistData = async (req: Request, res: Response) => {
