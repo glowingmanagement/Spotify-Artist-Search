@@ -14,7 +14,7 @@ This is a simple web app that allows you to search for an artist using the Spoti
 1. Clone the repo by running:
 
     ```bash
-    git@github.com:glowingmanagement/unhurd-spotify-webapp.git
+    git clone git@github.com:glowingmanagement/unhurd-spotify-webapp.git
     ```
 
 2. Change into the directory by running:
