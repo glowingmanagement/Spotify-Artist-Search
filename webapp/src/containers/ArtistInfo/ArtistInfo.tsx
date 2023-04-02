@@ -7,6 +7,9 @@ type ArtistInfoProps = {
 };
 
 const ArtistInfo = ({ searchResults }: ArtistInfoProps) => {
+  const defaultImage: string =
+    "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
+  const artistImage = searchResults.artistImage?.url || defaultImage;
   const formatFollowers = (followers: number) => {
     if (followers < 1000) {
       return followers.toString();
@@ -25,7 +28,7 @@ const ArtistInfo = ({ searchResults }: ArtistInfoProps) => {
           <p className="artistGenreText">{searchResults.genres.join(", ")}</p>
         </div>
         <img
-          src={searchResults.artistImage.url}
+          src={artistImage}
           alt={`${searchResults.artistName} profile`}
           className="artistProfileImage"
         />

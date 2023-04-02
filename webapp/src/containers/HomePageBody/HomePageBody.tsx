@@ -31,7 +31,12 @@ const HomePageBody = () => {
         />
       )}
 
-      {isError && <ErrorMessage />}
+      {isError && (
+        <ErrorMessage
+          title="Oops! Something went wrong"
+          message="Please try again later"
+        />
+      )}
     </div>
   );
 };

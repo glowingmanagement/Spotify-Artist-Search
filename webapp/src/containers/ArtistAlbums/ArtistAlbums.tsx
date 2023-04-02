@@ -2,12 +2,14 @@ import AlbumCard from "../../components/AlbumCard";
 import { SpotifyArtistAlbums } from "../../types";
 import { Link } from "react-router-dom";
 import "./ArtistAlbums.css";
+import ErrorMessage from "../../components/ErrorMessage";
 
 type ArtistAlbumsTypes = {
   albums: SpotifyArtistAlbums;
 };
 
 const ArtistAlbums = ({ albums }: ArtistAlbumsTypes) => {
+  console.log(albums);
   return (
     <div className="albumContainer">
       {albums.albums.map((album: any) => {
@@ -17,6 +19,12 @@ const ArtistAlbums = ({ albums }: ArtistAlbumsTypes) => {
           </Link>
         );
       })}
+      {albums.albums.length === 0 && (
+        <ErrorMessage
+          title="Sorry!"
+          message="No tracks found for this artist"
+        />
+      )}
     </div>
   );
 };

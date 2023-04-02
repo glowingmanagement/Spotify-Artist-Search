@@ -1,10 +1,15 @@
 import "./ErrorMessage.css";
 
-const ErrorMessage = () => {
+type ErrorMessageProps = {
+  title: string;
+  message: string;
+};
+
+const ErrorMessage = ({ title, message }: ErrorMessageProps) => {
   return (
     <div className="errorMessage">
-      <h3>Oops! Something went wrong.</h3>
-      <p>Try again later.</p>
+      <h3>{title}</h3>
+      <p>{message}</p>
     </div>
   );
 };

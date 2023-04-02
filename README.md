@@ -8,6 +8,6 @@
 - [ ] Check all files
 - [ ] Refactor
 - [ ] Write README with instructions
-- [ ] Mobile Responsive
+- [X] Mobile Responsive
 - [X] Add similar artists on search
 - [ ] Add page number to URL so back button works

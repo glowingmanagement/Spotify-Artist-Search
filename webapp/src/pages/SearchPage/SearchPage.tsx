@@ -24,6 +24,8 @@ const SearchPage = () => {
   >([]);
   const limit = 10;
   const MAX_HISTORY_LENGTH = 5;
+  const defaultImage: string =
+    "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
 
   const checkIfLastPage = () => {
     if (searchResults) {
@@ -91,7 +93,8 @@ const SearchPage = () => {
 
   const addToHistory = () => {
     const artistName: string | undefined = searchResults?.artistName;
-    const artistImage: string | undefined = searchResults?.artistImage.url;
+    const artistImage: string | undefined =
+      searchResults?.artistImage?.url || defaultImage;
     if (!artistName) return;
     const index = searchHistory.findIndex(
       (item: any) => item.name === artistName && item.image === artistImage
@@ -112,6 +115,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     addToHistory();
+    console.log(searchResults);
   }, [searchResults]);
 
   useEffect(() => {
@@ -133,9 +137,11 @@ const SearchPage = () => {
         <div>
           <div className="artistInfoAndPageNumber">
             <ArtistInfo searchResults={searchResults} />
-            <h2 className="pageNumberText">
-              Page {pageNumber} of {numberOfPages}
-            </h2>
+            {numberOfPages >= 1 && (
+              <h2 className="pageNumberText">
+                Page {pageNumber} of {numberOfPages}
+              </h2>
+            )}
           </div>
           <div className="paginationContainer">
             <FontAwesomeIcon
@@ -150,10 +156,17 @@ const SearchPage = () => {
               className={!isLastPage ? "paginationButton" : "disabled"}
             />
           </div>
-          <SimilarArtists relatedArtists={searchResults.relatedArtists} />
+          {searchResults.relatedArtists.artists.length > 0 && (
+            <SimilarArtists relatedArtists={searchResults.relatedArtists} />
+          )}
         </div>
       )}
-      {isError && <ErrorMessage />}
+      {isError && (
+        <ErrorMessage
+          title="Oops! Something went wrong"
+          message="Please try again later"
+        />
+      )}
     </div>
   );
 };
