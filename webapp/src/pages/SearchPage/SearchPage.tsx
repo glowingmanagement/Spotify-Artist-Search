@@ -19,7 +19,11 @@ const SearchPage = () => {
     useState<SpotifyArtistProfileResponse | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
+  const [searchHistory, setSearchHistory] = useState<
+    { name: string; image: string }[]
+  >([]);
   const limit = 10;
+  const MAX_HISTORY_LENGTH = 5;
 
   const checkIfLastPage = () => {
     if (searchResults) {
@@ -85,9 +89,43 @@ const SearchPage = () => {
     }
   };
 
+  const addToHistory = () => {
+    const artistName: string | undefined = searchResults?.artistName;
+    const artistImage: string | undefined = searchResults?.artistImage.url;
+    if (!artistName) return;
+    const index = searchHistory.findIndex(
+      (item: any) => item.name === artistName && item.image === artistImage
+    );
+    if (index >= 0) {
+      const updatedHistory = [
+        ...searchHistory.slice(0, index),
+        ...searchHistory.slice(index + 1),
+        { name: artistName, image: artistImage || "" },
+      ];
+      setSearchHistory(updatedHistory.reverse());
+    } else {
+      const newHistoryItem = { name: artistName, image: artistImage || "" };
+      const updatedHistory = [newHistoryItem, ...searchHistory];
+      setSearchHistory(updatedHistory.splice(0, MAX_HISTORY_LENGTH));
+    }
+  };
+
   useEffect(() => {
-    console.log(searchResults);
+    addToHistory();
   }, [searchResults]);
+
+  useEffect(() => {
+    const savedHistory: string | null = localStorage.getItem("searchHistory");
+    if (savedHistory) {
+      setSearchHistory(JSON.parse(savedHistory));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (searchHistory.length > 0) {
+      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    }
+  }, [searchHistory]);
 
   return (
     <div className="artistPageContainer">

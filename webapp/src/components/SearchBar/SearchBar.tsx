@@ -16,10 +16,7 @@ const SearchBar = ({
   setSearchResults,
   setIsError,
 }: SearchBarProps) => {
-  const [searchHistory, setSearchHistory] = useState<string[]>([]);
-
   const handleSearch = () => {
-    addToHistory();
     searchForArtist();
   };
 
@@ -33,20 +30,6 @@ const SearchBar = ({
     setSearch(event.target.value);
   };
 
-  const addToHistory = () => {
-    const index = searchHistory.indexOf(search.toLowerCase());
-    if (index >= 0) {
-      const updatedHistory: string[] = [
-        search.toLowerCase(),
-        ...searchHistory.slice(0, index),
-        ...searchHistory.slice(index + 1),
-      ];
-      setSearchHistory(updatedHistory);
-    } else {
-      setSearchHistory([search.toLowerCase(), ...searchHistory]);
-    }
-  };
-
   const searchForArtist = async () => {
     try {
       const response = await spotifyApiInstance.get(
@@ -58,19 +41,6 @@ const SearchBar = ({
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    const savedHistory: string | null = localStorage.getItem("searchHistory");
-    if (savedHistory) {
-      setSearchHistory(JSON.parse(savedHistory));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (searchHistory.length > 0) {
-      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-    }
-  }, [searchHistory]);
 
   return (
     <div className="searchBarContainer">
