@@ -26,7 +26,7 @@ This is a simple web app that allows you to search for an artist using the Spoti
 3. Install dependencies by running:
 
     ```bash
-    npm app:install
+    npm run app:install
     ```
 
 4. Add your client ID and secret to the `.env` file in the server directory (see `.env.example` for reference)
