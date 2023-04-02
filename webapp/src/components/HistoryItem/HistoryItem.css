@@ -1,0 +1,29 @@
+.historyImage {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.historyItemTitle {
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding-top: 1rem;
+}
+
+.historyItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 1.4rem;
+  width: 25rem;
+  padding: 1rem;
+  border-bottom: 1px solid #0badfe;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}

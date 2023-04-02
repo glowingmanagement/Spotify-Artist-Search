@@ -103,11 +103,15 @@ const SearchPage = () => {
       const updatedHistory = [
         ...searchHistory.slice(0, index),
         ...searchHistory.slice(index + 1),
-        { name: artistName, image: artistImage || "" },
+        { name: artistName, image: artistImage || "", id: id },
       ];
       setSearchHistory(updatedHistory.reverse());
     } else {
-      const newHistoryItem = { name: artistName, image: artistImage || "" };
+      const newHistoryItem = {
+        name: artistName,
+        image: artistImage || "",
+        id: id,
+      };
       const updatedHistory = [newHistoryItem, ...searchHistory];
       setSearchHistory(updatedHistory.splice(0, MAX_HISTORY_LENGTH));
     }

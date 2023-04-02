@@ -1,6 +1,7 @@
 import { useState, useEffect, KeyboardEvent, ChangeEvent } from "react";
 import spotifyApiInstance from "../../spotifyApiInstance";
 import { SpotifyArtistResponse } from "../../types";
+import DisplayHistory from "../DisplayHistory";
 import "./SearchBar.css";
 
 type SearchBarProps = {
@@ -19,6 +20,9 @@ const SearchBar = ({
   const handleSearch = () => {
     searchForArtist();
   };
+  const [history, setHistory] = useState<string[]>([]);
+  const [isSearchInputFocused, setIsSearchInputFocused] = useState(false);
+  const [blurTimeout, setBlurTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
@@ -42,19 +46,55 @@ const SearchBar = ({
     }
   };
 
+  const getHistory = () => {
+    const history: string | null = localStorage.getItem("searchHistory");
+    if (history) {
+      return JSON.parse(history);
+    }
+    return [];
+  };
+
+  const handleBlur = () => {
+    const timeout = setTimeout(() => {
+      setIsSearchInputFocused(false);
+    }, 100);
+    setBlurTimeout(timeout);
+  };
+
+  const handleFocus = () => {
+    if (blurTimeout) {
+      clearTimeout(blurTimeout);
+      setBlurTimeout(null);
+    }
+    setIsSearchInputFocused(true);
+  };
+
+  useEffect(() => {
+    setHistory(getHistory());
+  }, []);
+
   return (
-    <div className="searchBarContainer">
-      <input
-        type="text"
-        placeholder="Search Artist Name"
-        value={search}
-        onChange={handleChange}
-        onKeyPress={handleKeyPress}
-        className="searchInput"
-      />
-      <button onClick={handleSearch} className="submitButton">
-        Search
-      </button>
+    <div>
+      <div className="searchBarContainer">
+        <div>
+          <input
+            type="text"
+            placeholder="Search Artist Name"
+            value={search}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            className="searchInput"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          {isSearchInputFocused && history.length > 0 && (
+            <DisplayHistory history={history} />
+          )}
+        </div>
+        <button onClick={handleSearch} className="submitButton">
+          Search
+        </button>
+      </div>
     </div>
   );
 };
