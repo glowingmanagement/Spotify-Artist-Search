@@ -30,7 +30,7 @@ This is a simple web app that allows you to search for an artist using the Spoti
     npm run app:install
     ```
 
-4. Add your client ID and secret to the `.env` file in the server directory (see `.env.example` for reference)
+4. Create a `.env` file in the server directory and add your Spotify client ID and secret following the `.env.example` for reference
 
 5. Build the app by running:
 
