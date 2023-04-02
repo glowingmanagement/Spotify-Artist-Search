@@ -50,14 +50,10 @@ This is a simple web app that allows you to search for an artist using the Spoti
     http://localhost:3000
     ```
 
-## To-Do
+## Contact
 
-- [X] View and select history
-- [X] Make albums clickable
-- [X] Display tracks from albums
-- [X] Check all files
-- [X] Refactor
-- [X] Write README with instructions
-- [X] Mobile Responsive
-- [X] Add similar artists on search
-- [ ] Add page number to URL so back button works
+Josh Holmes:
+
+- [LinkedIn](https://www.linkedin.com/in/joshholmes22)
+- [Email](mailto:josh@glowingmanagement.com)
+- [GitHub](htts://www.github.com/glowingmanagement)
