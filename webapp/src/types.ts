@@ -117,7 +117,6 @@ export type SpotifyArtistAlbums = {
     release_date: string;
     total_tracks: number;
     trackName: string;
-    // totalAlbums: number;
   }[];
 };
 
@@ -223,4 +222,28 @@ export type SpotifyAlbumTracks = {
   track_number: number;
   type: string;
   uri: string;
+};
+
+export type SpotifyRelatedArtistsResponse = {
+  artists: {
+    external_urls: {
+      spotify: string;
+    };
+    followers: {
+      href: null;
+      total: number;
+    };
+    genres: string[];
+    href: string;
+    id: string;
+    images: {
+      height: number;
+      url: string;
+      width: number;
+    }[];
+    name: string;
+    popularity: number;
+    type: string;
+    uri: string;
+  }[];
 };

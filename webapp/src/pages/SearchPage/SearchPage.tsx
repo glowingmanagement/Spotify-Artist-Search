@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import ErrorMessage from "../../components/ErrorMessage";
 import spotifyApiInstance from "../../spotifyApiInstance";
 import { SpotifyArtistProfileResponse } from "../../types";
@@ -8,9 +8,11 @@ import ArtistInfo from "../../containers/ArtistInfo";
 import ArtistAlbums from "../../containers/ArtistAlbums";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import SimilarArtists from "../../containers/SimilarArtists";
 
 const SearchPage = () => {
   const { id } = useParams();
+  const location = useLocation();
   const [isError, setIsError] = useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [searchResults, setSearchResults] =
@@ -47,7 +49,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     getArtistData();
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     checkIfLastPage();
@@ -110,6 +112,7 @@ const SearchPage = () => {
               className={!isLastPage ? "paginationButton" : "disabled"}
             />
           </div>
+          <SimilarArtists relatedArtists={searchResults.relatedArtists} />
         </div>
       )}
       {isError && <ErrorMessage />}

@@ -1,0 +1,15 @@
+.similarArtistsTitle {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+
+.similarArtistContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  width: 100vw;
+  flex-wrap: wrap;
+}

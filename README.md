@@ -9,4 +9,5 @@
 - [ ] Refactor
 - [ ] Write README with instructions
 - [ ] Mobile Responsive
-- [ ] Add similar artists on search
+- [X] Add similar artists on search
+- [ ] Add page number to URL so back button works
