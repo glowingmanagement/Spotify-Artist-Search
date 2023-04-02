@@ -7,6 +7,7 @@
     "webapp:start": "cd webapp && npm start",
     "webapp:build": "cd webapp && npm run build",
     "server:start": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
     "server:build": "cd server && npm run build",
     "webapp:install": "cd webapp && npm install",
     "server:install": "cd server && npm install",

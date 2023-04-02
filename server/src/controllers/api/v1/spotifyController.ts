@@ -10,6 +10,9 @@ const getAccessToken = async (): Promise<string> => {
   const clientId: string | undefined = process.env.CLIENT_ID;
   const clientSecret: string | undefined = process.env.CLIENT_SECRET;
 
+  console.log("clientId", clientId);
+  console.log("clientSecret", clientSecret);
+
   if (!clientId || !clientSecret) {
     throw new Error(
       "Client ID or Client Secret is missing in environment variables."
@@ -29,6 +32,7 @@ const getAccessToken = async (): Promise<string> => {
       },
     }
   );
+  console.log("Access token response", response.data.access_token);
   return response.data.access_token;
 };
 
