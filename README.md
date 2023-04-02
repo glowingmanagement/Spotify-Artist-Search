@@ -4,6 +4,12 @@
 
 This is a simple web app that allows you to search for an artist using the Spotify API and view their albums and tracks. The app also displays the artist and track's popularity. It also allows you to view your recently viewed when you perform a search and preview tracks.
 
+## Requirements
+
+- [Node.js](https://nodejs.org/en/)
+- Create a Spotify app and get your client ID and secret [here](https://developer.spotify.com/dashboard/applications)
+- Add your client ID and secret to the `.env` file in the server directory (see `.env.example` for reference)
+
 ## Installation
 
 1. Clone the repo by running:
