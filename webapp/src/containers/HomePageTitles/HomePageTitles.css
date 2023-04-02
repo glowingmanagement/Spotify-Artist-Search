@@ -6,7 +6,7 @@
 }
 
 .title {
-  color: #fff;
+  color: var(--text-color);
   font-size: 8rem;
   line-height: 10rem;
   padding-top: 3rem;

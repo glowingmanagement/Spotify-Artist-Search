@@ -5,7 +5,7 @@
 }
 
 .albumInfoText {
-  color: #fff;
+  color: var(--text-color);
   font-size: 1.5rem;
   text-align: center;
   white-space: nowrap;
@@ -20,8 +20,8 @@
   align-items: center;
   justify-content: center;
   gap: 1.4rem;
-  background-color: rgba(28, 28, 30);
-  border: 2rem solid rgba(28, 28, 30);
+  background-color: var(--primary-color);
+  border: 2rem solid var(--primary-color);
   width: 25rem;
   box-sizing: border-box;
 }

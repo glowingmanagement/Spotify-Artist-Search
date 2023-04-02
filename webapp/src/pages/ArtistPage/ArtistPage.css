@@ -25,7 +25,7 @@
 
 .pageNumberText {
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--text-color);
   text-transform: uppercase;
   padding: 0.5rem;
   text-align: center;
@@ -33,7 +33,7 @@
 
 .paginationButton {
   font-size: 5rem;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
   max-height: 5rem;
 }

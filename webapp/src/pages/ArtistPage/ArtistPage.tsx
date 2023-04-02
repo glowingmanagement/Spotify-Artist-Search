@@ -3,14 +3,14 @@ import { useParams, useLocation } from "react-router-dom";
 import ErrorMessage from "../../components/ErrorMessage";
 import spotifyApiInstance from "../../spotifyApiInstance";
 import { SpotifyArtistProfileResponse } from "../../types";
-import "./SearchPage.css";
+import "./ArtistPage.css";
 import ArtistInfo from "../../containers/ArtistInfo";
 import ArtistAlbums from "../../containers/ArtistAlbums";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import SimilarArtists from "../../containers/SimilarArtists";
 
-const SearchPage = () => {
+const ArtistPage = () => {
   const { id } = useParams();
   const location = useLocation();
   const [isError, setIsError] = useState(false);
@@ -171,4 +171,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default ArtistPage;

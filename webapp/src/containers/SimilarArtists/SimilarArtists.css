@@ -1,6 +1,6 @@
 .similarArtistsTitle {
   font-size: 3rem;
-  color: #fff;
+  color: var(--text-color);
   text-align: center;
 }
 

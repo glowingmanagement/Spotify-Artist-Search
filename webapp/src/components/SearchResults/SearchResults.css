@@ -21,7 +21,7 @@
   font-weight: 600;
   margin: 2rem auto;
   display: block;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .buttonContainer {
@@ -32,7 +32,7 @@
 
 .declineButton {
   background-color: #c0392b;
-  color: #fff;
+  color: var(--text-color);
   border-color: #c0392b;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
