@@ -1,4 +1,4 @@
-# UnHurd Spotify WebApp
+# Spotify Artist Search
 
 ## Description
 
